@@ -1,0 +1,22 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background: url("../images/admin/back.png") no-repeat;
+}
+.login{
+    width: 600px;
+    border: 1px solid #ddd;
+    margin: 200px auto;
+    border-radius: 8px;
+    background: #fff;
+}
+.login h1{
+    text-align: center;
+    margin: 10px;
+    font-weight: 400;
+}
+.formcode{
+    padding: 30px;
+}

@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+}
+body{
+    list-style: none;
+    margin: 0 auto;
+    background:#f5f5f5;
+}
+ul,li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+button,input{
+    border: none;
+}
+.red{
+    color: red;
+}
+.green{
+    color: green;
+}
+/* top start  */
+header{
+    width: 100%;
+    background: #fff;
+    box-shadow: 0px 2px 3px #e6e6e6;
+}
+.top{
+    width: 1280px;
+    margin: auto;
+    height: 60px;
+}
+.topLogo{
+    width: 10%;
+    padding: 10px 10px 10px 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+.topLogo img{
+    width: 100%;
+}
+.topcate{
+    display: inline-block;
+    height: 100%;
+    margin-left: 30px;
+}
+.topcate ul{
+    display: inline-block;
+    height: 100%;
+}
+.topcate ul li{
+    display: block;
+    float: left;
+    padding-right: 20px;
+    height: 100%;
+}
+.topcate ul li a{
+    line-height: 60px;
+    color: #737088;
+    transition: all 0.5s;
+}
+.topcate ul li a.active{
+    color: #4d70ff;
+}
+.topcate ul li a:hover{
+    line-height: 60px;
+    color: #4d70ff;
+}
+.regin{
+    float: right;
+    position: relative;
+    line-height: 60px;
+}
+.regin .btn-login{
+    border: 1px solid #4d70ff;
+    padding: 5px 15px;
+    color: #4d70ff;
+}
+.regin .btn-reg{
+    border: 1px solid #4d70ff;
+    padding: 5px 15px;
+    background: #4d70ff;
+    color: #fff;
+}
+.regin .ava{
+    width: 45px;
+    height: 45px;
+    margin: 8px;
+    border-radius: 30px;
+    display: inline-block;
+}
+.regin img{
+    border-radius: 30px;
+    width: 100%;
+}
+.userof{
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    z-index: 9;
+    background: #fff;
+    display: none;
+}
+.userof a{
+    padding: 5px;
+}
+.top .cate_list{
+    position: absolute;
+    font-size: 30px;
+    margin-top: 10px;
+    top: 6px;
+    color: #525252;
+    background: #fff;
+    left: 10px;
+    display: none;
+}
+/* top over  */
+
