@@ -28,10 +28,16 @@ class BlogController extends controller{
         $cateGet = Category::get();
         $post->see = $post->see+1;
         $post->save();
-        if (isset($num)){
-            $post->likeof = $post->likeof+1;
-            $post->save();
-            return json_encode(array('status'=>200,'id'=>$num,'like'=>$post->likeof));
+        if (!empty($_POST)){
+            if (!session('username')){
+                return ['status'=>'nologin','message'=>'你还没有登录'];
+            }else{
+                if (isset($num)){
+                    $post->likeof = $post->likeof+1;
+                    $post->save();
+                    return json_encode(array('status'=>200,'id'=>$num,'like'=>$post->likeof));
+                }
+            }
         }
         return view('post',[
             'post' => $post,

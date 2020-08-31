@@ -58,12 +58,18 @@ $(function(){
                         type:'success'
                     })
                     $('#loveCount,.meta span:last-child').html(data.like);
-                } else {
+                } else if (data.status=='nologin'){
+                    app.$message({
+                        message:data.message,
+                        type:'warning'
+                    })
+                }else {
                     app.$message({
                         message:'点赞失败',
                         type:'error'
                     })
                 }
+
             }
         });
     });
