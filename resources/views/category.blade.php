@@ -39,8 +39,6 @@
                                     <h3><a href="{{ url('post',['id'=>$postof->id]) }}" title="{{ $postof->post_name }}">{{ $postof->post_name }}</a></h3>
                                 </div>
                                 <div class="blog-article-preview-info-bottom">
-                                    <p>{!! Str::limit($postof->content,20)  !!} </p>
-
                                     <a href="{{ url('post',['id'=>$postof->id]) }}">阅读全文</a>
                                 </div>
                             </section>

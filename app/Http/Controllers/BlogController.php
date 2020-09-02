@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use App\Postmeta;
 use App\User;
 use App\Category;
 use App\Sys;
@@ -28,17 +29,32 @@ class BlogController extends controller{
         $cateGet = Category::get();
         $post->see = $post->see+1;
         $post->save();
+        $userid = User::where('username','=',session('username'))->first();
+        $postMate = new Postmeta;
         if (!empty($_POST)){
             if (!session('username')){
                 return ['status'=>'nologin','message'=>'你还没有登录'];
             }else{
-                if (isset($num)){
-                    $post->likeof = $post->likeof+1;
-                    $post->save();
-                    return json_encode(array('status'=>200,'id'=>$num,'like'=>$post->likeof));
+                //查找是否存在
+                $postme = Postmeta::where([
+                    ['art_id','=',$num],
+                   [ 'user_id','=',$userid->id]
+                ])->first();
+                if (!empty($postme)){
+                    return json_encode(array('status'=>'error','message'=>'点赞失败'));
+                }else{
+                    $postMate->art_id = $num;
+                    $postMate->user_id = $userid->id;
+                    $postMate->save();
+                    if (isset($num)){
+                        $post->likeof = $post->likeof+1;
+                        $post->save();
+                        return json_encode(array('status'=>200,'id'=>$num,'like'=>$post->likeof,'message'=>'点赞成功'));
+                    }
                 }
             }
         }
+
         return view('post',[
             'post' => $post,
             'hot_post' => $hot_post,

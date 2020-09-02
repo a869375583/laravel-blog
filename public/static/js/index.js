@@ -54,7 +54,7 @@ $(function(){
             success:function(data) {
                 if (data.status == '200') {
                     app.$message({
-                        message:'点赞成功',
+                        message:data.message,
                         type:'success'
                     })
                     $('#loveCount,.meta span:last-child').html(data.like);
@@ -65,7 +65,7 @@ $(function(){
                     })
                 }else {
                     app.$message({
-                        message:'点赞失败',
+                        message:data.message,
                         type:'error'
                     })
                 }

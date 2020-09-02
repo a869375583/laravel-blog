@@ -8,19 +8,68 @@
 
 
         <div class="mainbody">
-            <el-carousel indicator-position="inside" :autoplay="false">
-                @foreach($post as $postin)
+            <el-carousel indicator-position="inside" :autoplay="false" height="400px">
                     <el-carousel-item>
                         <div class="banner-slot">
-                            <a href="{{ url('post',['id' => $postin->id]) }}">
-                                <h3>{{ $postin->post_name }}</h3>
-                            </a>
-                            <img src="{{ isset($postin->pic) ? $postin->pic : '/static/images/banner.jpg' }}" alt="">
+                            <img src="/static/images/banner.png" alt="">
                         </div>
                     </el-carousel-item>
-                @endforeach
             </el-carousel>
+            {{--four pic--}}
+            <div class="index-special row mb-6">
+                <div class="col-3"><a href="/special/novice" class="">
+                        <div class="macwk-card bg-gradient-green hover-shadow-6 py-3 text-center"
+                             style="will-change: transform; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);">
+
+                            <div class="macwk-card__collapsible-content vs-con-loading__container">
+                                <div class="macwk-card__body"><h6 class="mb-0 text-white"><i
+                                            class="el-icon-goods fs-22 mr-3 v-m-3"></i> <span>新人必备</span></h6></div>
+                                </div>
+                        </div>
+                    </a></div>
+                <div class="col-3"><a href="/special/photo" class="">
+                        <div class="macwk-card bg-gradient-orange hover-shadow-6 py-3 text-center"
+                             style="will-change: transform; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);">
+                            <div class="macwk-card__collapsible-content vs-con-loading__container">
+                                <div class="macwk-card__body"><h6 class="mb-0 text-white"><i
+                                            class="el-icon-shopping-bag-1 fs-22 mr-3 v-m-3"></i> <span>图像处理工具</span></h6></div>
+                                </div>
+                        </div>
+                    </a></div>
+                <div class="col-3"><a href="/special/pm" class="">
+                        <div class="macwk-card bg-gradient-blue hover-shadow-6 py-3 text-center"
+                             style="will-change: transform; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);">
+
+                            <div class="macwk-card__collapsible-content vs-con-loading__container">
+                                <div class="macwk-card__body"><h6 class="mb-0 text-white"><i
+                                            class="el-icon-date fs-22 mr-3 v-m-3"></i> <span>产品经理工具</span></h6></div>
+                                </div>
+                        </div>
+                    </a></div>
+                <div class="col-3"><a href="/special" class="">
+                        <div class="macwk-card bg-gradient-purple hover-shadow-6 py-3 text-center"
+                             style="will-change: transform; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);">
+
+                            <div class="macwk-card__collapsible-content vs-con-loading__container">
+                                <div class="macwk-card__body"><h6 class="mb-0 text-white"><i
+                                            class="el-icon-takeaway-box fs-22 mr-3 v-m-3"></i> <span>更多专题</span></h6></div>
+                                </div>
+                        </div>
+                    </a></div>
+            </div>
+            {{--four pic end --}}
             <el-row :gutter="20" class="bk-style">
+                <div class="d-flex app-content-header mb-6">
+                    <div class="main-title"><h4 class="i-con-h-a mb-0">
+                            <i class="mr-1 text-muted i-con i-con-calendar v-m-4"><i></i></i> <span>最新资源</span></h4>
+                    </div>
+                    <nav class="nav nav-title flex-grow-1">
+                        <a class="nav-link active">新鲜发布</a>
+                        <a class="nav-link">热门下载</a>
+                        <a class="nav-link">站长推荐</a>
+                        <a class="nav-link">最多评论</a>
+                    </nav>
+                </div>
                 @foreach($post as $p)
                     <el-col :span="6">
                         <div class="grid-content bg-purple">
@@ -56,6 +105,5 @@
                     </el-col>
                 @endforeach
             </el-row>
-    {{ $post->render() }}
 
 @endsection
