@@ -1861,9 +1861,7 @@ code {
     position: relative;
 }
 
-.text-xs {
-    font-size: 0.75rem !important;
-}
+
 
 .mb-1, .my-1 {
     margin-bottom: .25rem !important;
@@ -1891,9 +1889,7 @@ code {
 .text-muted {
     color: #6c757d !important;
 }
-.text-xs {
-    font-size: 0.75rem !important;
-}
+
 
 .mt-1, .my-1 {
     margin-top: .25rem !important;
@@ -2162,3 +2158,119 @@ code {
     background-color: #c0c4cc;
     opacity: .24;
 }
+/*post top*/
+
+
+.mid .list {
+    color: inherit;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    height: 100%;
+    border-radius: 2px;
+    overflow: hidden;
+    word-wrap: break-word;
+    box-shadow: 0 0 40px -5px rgba(2,10,18,.11);
+    transition: all .3s ease-in-out;
+}
+.mid .list-auto {
+    height: auto;
+}
+.mid .list-overlay {
+    color: #fff;
+    z-index: 1;
+    min-height: auto;
+}
+
+.mid .media {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    overflow: hidden;
+    padding: 0;
+    flex: 0 0 auto;
+}
+.mid .list-overlay .media {
+    flex: 1 0 auto;
+}
+.mid .media-content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 2px;
+    background: no-repeat 50%/cover #787878;
+    transition: all .44s ease-in-out;
+}
+
+.mid .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.66);
+    opacity: .33;
+    transition: opacity .3s ease-in-out;
+}
+
+.mid .media:after {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+.mid .media-14x5:after {
+    content: "";
+    padding-top: 35.66666%;
+}
+
+
+.mid .list-content, .list-head {
+    padding: .5rem 1rem;
+}
+.mid .list-body, .list-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+.mid .list-overlay .list-content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: inherit;
+}
+
+.mid .list-body, .list-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+.mid .list-body {
+    justify-content: space-between;
+}
+.mid .list-title {
+    display: block;
+    margin: auto;
+    color: inherit;
+}
+.ml-1 {
+    margin-left: .25rem!important;
+}
+.mb-3 {
+    margin-bottom: 1rem!important;
+}
+.text-light {
+    color: var(--light)!important;
+}
+.text-bold {
+    font-weight: 700;
+}
+.text-xl {
+    font-size: 2rem!important;
+}
+/*post top end*/
+

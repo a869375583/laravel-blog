@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Illuminate\Support\Facades\Session;
 class BlogController extends controller{
     public function index(){
-        $post = Blog::paginate(12);
+        $post = Blog::orderBy('id','DESC')->paginate(12);
         $cate = Category::get();
         $hot_post = Blog::orderBy('see','DESC')->limit(5)->get();
         $user_num = User::paginate();
