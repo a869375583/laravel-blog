@@ -43,7 +43,6 @@ $(function(){
     $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
     $('.btn-love').click(function() {
         var id = $(this).data("id");
-        console.log(id);
         $.ajax({
             url: '/post/'+id,
             type: 'post',

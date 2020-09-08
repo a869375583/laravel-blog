@@ -6,6 +6,8 @@ use App\Postmeta;
 use App\User;
 use App\Category;
 use App\Sys;
+use App\Index;
+use App\Banner;
 use Symfony\Component\HttpFoundation\Request;
 use Illuminate\Support\Facades\Session;
 class BlogController extends controller{
@@ -14,11 +16,17 @@ class BlogController extends controller{
         $cate = Category::get();
         $hot_post = Blog::orderBy('see','DESC')->limit(5)->get();
         $user_num = User::paginate();
+        $configs = Sys::first();
+        $indexof = Index::first();
+        $banner = Banner::get();
         return view('index',[
             'post' => $post,
             'cate' => $cate,
             'hot_post' => $hot_post,
             'user_num' => $user_num,
+            'sys'=>$configs,
+            'indexof' => $indexof,
+            'banner' => $banner
         ]);
     }
 
@@ -54,25 +62,22 @@ class BlogController extends controller{
                 }
             }
         }
-
+        $configs = Sys::first();
         return view('post',[
             'post' => $post,
             'hot_post' => $hot_post,
-            'cate' => $cateGet
+            'cate' => $cateGet,
+            'sys' => $configs
         ]);
 
     }
 
     public function layout(){
         $cateGet = Category::get();
+        $configs = Sys::first();
         return view('common.layout',[
             'cate' => $cateGet,
-        ]);
-    }
-
-    public function footer(){
-        return view('common.footer',[
-
+            'sys' => $configs
         ]);
     }
 
@@ -81,11 +86,13 @@ class BlogController extends controller{
         $cateGet = Category::get();
         $user_num = User::paginate();
         $postGet = Blog::where('cate_id',$id)->paginate(9);
+        $configs = Sys::first();
         return view('category',[
             'post' => $post,
             'cate' => $cateGet,
             'user_num' => $user_num,
-            'postGet' => $postGet
+            'postGet' => $postGet,
+            'sys' => $configs
         ]);
     }
     //login登录
@@ -113,9 +120,10 @@ class BlogController extends controller{
                 }
             }
         }
-
+        $configs = Sys::first();
         return view('member.login',[
-            'cate' => $cateGet
+            'cate' => $cateGet,
+            'sys'=>$configs
         ]);
     }
 
@@ -147,12 +155,14 @@ class BlogController extends controller{
                 }
             }
         }
-
+        $configs = Sys::first();
         $cateGet = Category::get();
         return view('member.register',[
-            'cate' => $cateGet
+            'cate' => $cateGet,
+            'sys' => $configs
         ]);
     }
+
 
     //退出
     public function un(){

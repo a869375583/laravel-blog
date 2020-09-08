@@ -40,7 +40,7 @@
                                 <label >底部版权</label>
                                 <input type="text" class="form-control"  name="System[copyright]" value="{{ $systems->copyright }}">
                             </div>
-                            <button class="btn btn-primary" type="submit">提交修改</button>
+                            <button class="el-button el-button--primary" type="submit">提交修改</button>
                         </form>
                     </div>
                 </div>

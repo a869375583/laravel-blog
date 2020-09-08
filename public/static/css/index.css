@@ -445,14 +445,23 @@ a.active, a.link-active, a:active, a:focus, a:hover {
 }
 
 .btn-love {
-    display: inline-block;
-    border-radius: 4px;
-    padding: 6px 12px;
-    border: 1px solid #ececec;
-    color: #98a8b5;
-    background-color: #efefef;
+    background-color: #8a92a9;
+    border-radius: 3px;
+    color: #FFFFFF;
+    font-size: 12px;
+    padding: 5px 10px;
+    text-decoration: none;
+    outline: none;
+    width: 62px;
+    margin: auto;
+    height: 62px;
+    border-radius: 50%;
+    display: block;
 }
-
+.btn-love i{
+    font-size: 25px !important;
+    padding: 8px;
+}
 .btn-love:hover {
     cursor: pointer;
 }
@@ -2125,6 +2134,9 @@ code {
     display: block;
     position: relative;
     transition: all .3s ease-in-out;
+}
+.macwk-card:hover{
+    transform: scale(1.05);
 }
 .bg-gradient-orange {
     background-image: linear-gradient(45deg,#fe9078,#f1b87f)!important;

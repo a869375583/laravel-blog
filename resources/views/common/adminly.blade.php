@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title') - 管理中心</title>
     <link href="https://lib.baomitu.com/element-ui/2.13.2/theme-chalk/index.css" rel="stylesheet">
     <script src="https://lib.baomitu.com/vue/2.6.11/vue.min.js"></script>
+    <script src="https://lib.baomitu.com/axios/0.20.0-0/axios.min.js"></script>
     <script src="https://lib.baomitu.com/element-ui/2.13.2/index.js"></script>
     <script src="{{ asset('/static/js/jquery.min.js') }}"></script>
     <script src="{{ asset('/static/js/admin.js') }}"></script>
@@ -67,6 +69,22 @@
                         <span class="link-title">
 
                         系统设置
+
+                    </span>
+                    </a>
+                </li>
+                <li class="nav-item {{ Request::getPathInfo() == '/admin/setting'? 'active' : '' }}">
+                    <a href="{{ url('admin/setting') }}" class="nav-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                             class="feather feather-feather link-icon">
+                            <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
+                            <line x1="16" y1="8" x2="2" y2="22"></line>
+                            <line x1="17.5" y1="15" x2="9" y2="15"></line>
+                        </svg>
+                        <span class="link-title">
+
+                        首页设置
 
                     </span>
                     </a>

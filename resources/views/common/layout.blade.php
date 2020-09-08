@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="keyword" content="{{$sys->keyword}}">
+    <meta name="description" content="{{$sys->description}}">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="https://lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://lib.baomitu.com/element-ui/2.13.2/theme-chalk/index.css" rel="stylesheet">
@@ -23,7 +25,7 @@
     <header>
         <div class="top">
             <div class="topLogo">
-                <a href="/"><img src="{{ asset('static/images/logo.png') }}" alt=""></a>
+                <a href="/"><img src="{{ $sys->logo }}" alt=""></a>
             </div>
             <button class="cate_list"><i class="fa fa-list"></i></button>
             <div class="topcate">
@@ -72,9 +74,9 @@
     <!-- search dialog end  -->
     <!-- footer ok -->
     <footer>
-        <p>Copyright © 2020 黑猫博客吧 All Rights Reserved</p>
+        <p>Copyright © 2020 {{$sys->title}} All Rights Reserved</p>
         <span>备案号：</span>
-        <a target="_blank" href="http://www.beian.miit.gov.cn/"><span>闽xxxxx</span></a>
+        <a target="_blank" href="http://www.beian.miit.gov.cn/"><span>{{$sys->copyright}}</span></a>
     </footer>
 </div>
 <!-- footer over end  -->

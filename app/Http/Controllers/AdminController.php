@@ -7,6 +7,8 @@ use App\Blog;
 use App\Category;
 use App\Sys;
 use App\User;
+use App\Index;
+use App\Banner;
 use Illuminate\Support\Facades\Session;
 use Symfony\Component\HttpFoundation\Request;
 use Illuminate\Support\Facades\Storage;
@@ -292,5 +294,75 @@ class AdminController extends Controller{
         }
 
         return view('admin.password');
+    }
+
+    public function settings(Request $request){
+        $ins = Index::first();
+        $banner = Banner::get();
+        if ($request->isMethod('post')){
+            $name_A = $request->input('name_A');
+            $name_B = $request->input('name_B');
+            $name_C = $request->input('name_C');
+            $name_D = $request->input('name_D');
+            $pic_A = $request->input('pic_A');
+            $pic_B = $request->input('pic_B');
+            $pic_C = $request->input('pic_C');
+            $pic_D = $request->input('pic_D');
+            $index = Index::find(1);
+            $index->name_A = $name_A;
+            $index->name_B = $name_B;
+            $index->name_C = $name_C;
+            $index->name_D = $name_D;
+            $index->pic_A = $pic_A;
+            $index->pic_B = $pic_B;
+            $index->pic_C = $pic_C;
+            $index->pic_D = $pic_D;
+            $index->save();
+            return json_encode(['status'=>'200']);
+        }
+        return view('admin.setting',[
+            'ins' => $ins,
+            'banner' => $banner
+        ]);
+    }
+
+    public function setting_data(){
+        $insof = Index::first();
+        return json_encode([
+            'status'=>'201',
+            'name_A'=>$insof->name_A,
+            'name_B'=>$insof->name_B,
+            'name_C'=>$insof->name_C,
+            'name_D'=>$insof->name_D,
+            'pic_A'=>$insof->pic_A,
+            'pic_B'=>$insof->pic_B,
+            'pic_C'=>$insof->pic_C,
+            'pic_D'=>$insof->pic_D
+        ]);
+    }
+
+    public function index_banner(Request $request){
+        $files = $request->file('file');
+        // 判断文件是否上传成功
+        if ($files != '') {
+            if ($files->isValid()) {
+                $originlNmae = $files->getClientOriginalName();//文件名
+                $ext = $files->getClientOriginalExtension();//扩展名
+                $type = $files->getClientMimeType();//文件类型
+                $realPath = $files->getRealPath();//临时绝对目录
+                $filename = uniqid() . '.' . $ext;
+                Storage::disk('uploads')->put($filename, file_get_contents($realPath)); //上传到指定路径
+                $banner = new Banner();
+                $banner->pics = '/app/uploads/' . $filename;
+                $banner->save();
+                return json_encode(['pic' => $banner->pics]);
+            }
+        }
+    }
+
+    public function del_img(Request $request,$id){
+        $bs = Banner::find($id);
+        $bs->delete();
+        return redirect('admin/setting')->with('success','删除成功');
     }
 }

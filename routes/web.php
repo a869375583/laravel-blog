@@ -43,7 +43,11 @@ Route::any('admin/cate', ['uses' => 'AdminController@getcate']);
 Route::any('admin/add_cate', ['uses' => 'AdminController@addcate']);
 Route::any('admin/c_cate/{id}', ['uses' => 'AdminController@c_cate']);
 Route::any('admin/d_cate/{id}',['uses'=>'AdminController@delete_cate']);
-
+//首页设置
+Route::any('admin/setting',['uses'=>'AdminController@settings']);
+Route::any('admin/setting_data',['uses'=>'AdminController@setting_data']);
+Route::any('admin/index_banner',['uses'=>'AdminController@index_banner']);
+Route::any('admin/del_img/{id}',['uses'=>'AdminController@del_img']);
 
 //密码修改
 Route::any('admin/password',['uses'=>'AdminController@c_password']);

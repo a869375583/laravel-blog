@@ -3,6 +3,16 @@ $(function(){
         el:'#app',
         data:{
             csrfToken: $('meta[name="csrf-token"]').attr('content'),
+            formLabelAlign: {
+                nameA: '',
+                nameB: '',
+                nameC: '',
+                nameD: '',
+                picA:'',
+                picB:'',
+                picC:'',
+                picD:'',
+            },
             handle_success(res) {
                 $('.pic').val(res.pic);
                 this.$message.success('图片上传成功')
@@ -11,7 +21,6 @@ $(function(){
                 var testmsg=file.name.substring(file.name.lastIndexOf('.')+1)
                 const extension = testmsg === 'jpg'
                 const extension2 = testmsg === 'png'
-                // const isLt2M = file.size / 1024 / 1024 < 10
                 if(!extension && !extension2) {
                     this.$message({
                         message: '上传文件只能是 jpg、png格式!',
@@ -20,6 +29,54 @@ $(function(){
                 }
                 return extension || extension2
             },
+        },
+        mounted(){
+            axios.post('/admin/setting_data',{})
+            .then(function (response) {
+                let data=app.formLabelAlign;
+                data.nameA = response.data.name_A;
+                data.nameB = response.data.name_B;
+                data.nameC = response.data.name_C;
+                data.nameD = response.data.name_D;
+                data.picA = response.data.pic_A;
+                data.picB = response.data.pic_B;
+                data.picC = response.data.pic_C;
+                data.picD = response.data.pic_D;
+            })
+        },
+        methods:{
+            onSubmit(){
+                let data=this.formLabelAlign;
+                let nameA = data.nameA;
+                let nameB = data.nameB;
+                let nameC = data.nameC;
+                let nameD = data.nameD;
+                let picA = data.picA;
+                let picB = data.picB;
+                let picC = data.picC;
+                let picD = data.picD;
+                axios.post('', {
+                    name_A:nameA,
+                    name_B:nameB,
+                    name_C:nameC,
+                    name_D:nameD,
+                    pic_A:picA,
+                    pic_B:picB,
+                    pic_C:picC,
+                    pic_D:picD,
+                })
+                .then(function (response) {
+                    if (response.status == 200){
+                        app.$message({
+                            message:'修改成功',
+                            type:'success'
+                        });
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            }
         },
     })
     var ad = new Vue({
