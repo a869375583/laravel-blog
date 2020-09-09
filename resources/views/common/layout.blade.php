@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{ asset('static/css/index.css') }}">
     <script src="https://lib.baomitu.com/vue/2.6.11/vue.min.js"></script>
     <script src="https://lib.baomitu.com/element-ui/2.13.2/index.js"></script>
+    <script src="https://lib.baomitu.com/axios/0.20.0-0/axios.min.js"></script>
     <script src="{{ asset('static/js/jquery.min.js') }}"></script>
     <script src="{{ asset('static/js/index.js') }}"></script>
     <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
@@ -37,13 +38,17 @@
             </div>
             <div class="regin">
                 @if(Session::has('username'))
+                <el-dropdown>
                 <a href="javascript:;" class="ava"><img src="{{ asset('static/images/avatar.jpg') }}" alt=""></a>
-                <div class="userof">
-                    <a href="{{ url('member/un') }}">退出</a>
-                </div>
+                    <el-dropdown-menu slot="dropdown">
+                        <el-dropdown-item><a href="{{ url('member/un') }}">退出登录</a></el-dropdown-item>
+                    </el-dropdown-menu>
+                </el-dropdown>
                 @else
-                <a href="{{ url('member/login') }}" class="btn-login">登录</a>
-                <a href="{{ url('member/register') }}" class="btn-reg">注册</a>
+                    <div class="los">
+                        <a href="{{ url('member/login') }}" class="el-button el-button--default">登录</a>
+                        <a href="{{ url('member/register') }}" class="el-button el-button--primary">注册</a>
+                    </div>
                 @endif
             </div>
         </div>

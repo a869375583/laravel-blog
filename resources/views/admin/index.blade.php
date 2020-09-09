@@ -10,42 +10,57 @@
                     <div class="col-md-4 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-baseline">
-                                    <h6 class="card-title mb-0">用户数量</h6>
+                                <div class="less-img">
+                                    <img src="{{ asset('static/images/user.png') }}" alt="">
                                 </div>
-                                <div class="row">
-                                    <div class="col-6 col-md-12 col-xl-5">
-                                        <h3 class="mb-2">{{ $usernum->total() }}</h3>
+                                <div class="f-l">
+                                    <div class="d-flex justify-content-between align-items-baseline">
+                                        <h6 class="card-title mb-0">用户数量</h6>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 col-md-12 col-xl-5">
+                                            <h3 class="mb-2">{{ $usernum->total() }}</h3>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-baseline">
-                                    <h6 class="card-title mb-0">文章数量</h6>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6 col-md-12 col-xl-5">
-                                        <h3 class="mb-2">{{ $postnum->total() }}</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-baseline">
-                                    <h6 class="card-title mb-0">分类数量</h6>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6 col-md-12 col-xl-5">
-                                        <h3 class="mb-2">{{ $catenum->total() }}</h3>
-                                    </div>
 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="less-img">
+                                    <img src="{{ asset('static/images/post.png') }}" alt="">
+                                </div>
+                                <div class="f-l">
+                                    <div class="d-flex justify-content-between align-items-baseline">
+                                        <h6 class="card-title mb-0">文章数量</h6>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 col-md-12 col-xl-5">
+                                            <h3 class="mb-2">{{ $postnum->total() }}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="less-img">
+                                    <img src="{{ asset('static/images/category.png') }}" alt="">
+                                </div>
+                                <div class="f-l">
+                                    <div class="d-flex justify-content-between align-items-baseline">
+                                        <h6 class="card-title mb-0">分类数量</h6>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 col-md-12 col-xl-5">
+                                            <h3 class="mb-2">{{ $catenum->total() }}</h3>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

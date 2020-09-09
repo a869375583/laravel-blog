@@ -2121,7 +2121,12 @@ code {
     flex: 0 0 25%;
     max-width: 25%;
 }
-
+@media screen and (max-width: 768px){
+    .col-3 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
 .pb-3, .py-3 {
     padding-bottom: .75rem!important;
 }
@@ -2286,3 +2291,32 @@ code {
 }
 /*post top end*/
 
+/*common-user*/
+.comment-list{
+    display: inline-block;
+    width: 100%;
+    margin-left: 80px;
+}
+.comment-list ul li{
+    display: inline-block;
+    width: 90%;
+    border-bottom: 1px dashed #ddd;
+}
+.comment-list ul li:last-child{
+    border: none;
+}
+.comment-list ul li img{
+    float: left;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 10px;
+}
+.comment-list ul li .userinfos{
+    float: left;
+    padding: 10px;
+}
+.comment-list ul li .userinfos p{
+    color: #6f6f6f;
+}
+/*common-user end*/

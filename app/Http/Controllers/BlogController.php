@@ -8,6 +8,7 @@ use App\Category;
 use App\Sys;
 use App\Index;
 use App\Banner;
+use App\Comment;
 use Symfony\Component\HttpFoundation\Request;
 use Illuminate\Support\Facades\Session;
 class BlogController extends controller{
@@ -39,6 +40,7 @@ class BlogController extends controller{
         $post->save();
         $userid = User::where('username','=',session('username'))->first();
         $postMate = new Postmeta;
+        $comment = Comment::where('post_id','=',$id)->get();
         if (!empty($_POST)){
             if (!session('username')){
                 return ['status'=>'nologin','message'=>'你还没有登录'];
@@ -46,7 +48,7 @@ class BlogController extends controller{
                 //查找是否存在
                 $postme = Postmeta::where([
                     ['art_id','=',$num],
-                   [ 'user_id','=',$userid->id]
+                    [ 'user_id','=',$userid->id]
                 ])->first();
                 if (!empty($postme)){
                     return json_encode(array('status'=>'error','message'=>'点赞失败'));
@@ -67,7 +69,8 @@ class BlogController extends controller{
             'post' => $post,
             'hot_post' => $hot_post,
             'cate' => $cateGet,
-            'sys' => $configs
+            'sys' => $configs,
+            'comment' => $comment,
         ]);
 
     }
@@ -110,7 +113,7 @@ class BlogController extends controller{
                         return redirect('member/login')->with('error', '未查询到该账号');
                     }else if ($userinfo['username'] == $usersql->username && md5($userinfo['password']) == $usersql->password) {
                         Session::put('username',$userinfo['username']);
-                        $ses = Session::get('username');
+                        Session::put('userid', $usersql->id);
                         return redirect('/');
                     } else {
                         return redirect('member/login')->with('error', '账号或密码错误');
@@ -168,5 +171,28 @@ class BlogController extends controller{
     public function un(){
         Session::forget('username');
         return redirect()->back();
+    }
+
+    //评论
+    public function comment(Request $request,$id){
+        if (Session::has('username')) {
+            if ($request->isMethod('POST')){
+                $comment = new Comment();
+                $userid = $request->input('ids');
+                $comment_content = $request->input('content');
+                if ($comment_content == ''){
+                    return json_encode(['status'=>400,'message'=>'评论内容不得为空']);
+                }else{
+                    $comment->user_id = $userid;
+                    $comment->post_id = $id;
+                    $comment->comment_content = $comment_content;
+                    $comment->save();
+                    return json_encode(['status'=>200,'userid'=>$userid,'post_id'=>$id,'content'=>$comment_content]);
+                }
+            }
+        }else{
+            return json_encode(['status'=>400,'message'=>'请先登录']);
+        }
+
     }
 }

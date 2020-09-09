@@ -4,7 +4,31 @@ $(function(){
         data:{
             username:'',
             password:'',
-            passwordt:''
+            passwordt:'',
+            form:{
+                desc:'',
+                id:1
+            }
+        },
+        methods:{
+            toCommon :function (id,userid){
+                axios.post('/post/comment/'+id, {
+                    ids : userid,
+                    content:this.form.desc,
+                }).then(function (reponse){
+                    if (reponse.data.status == 200){
+                        app.$message({
+                            message:'评论成功',
+                            type:'success'
+                        })
+                    }else if (reponse.data.status == 400){
+                        app.$message({
+                            message:reponse.data.message,
+                            type:'warning'
+                        })
+                    }
+                })
+            }
         },
     })
     setTimeout(() => {

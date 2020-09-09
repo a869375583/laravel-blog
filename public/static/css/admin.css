@@ -988,3 +988,14 @@ textarea.form-control{
 .blog-img{
     width: 25%;
 }
+.text-body{
+    color: #409eff;
+}
+.less-img{
+    float: left;
+}
+.card-body .f-l{
+    float: left;
+    width: 50%;
+    margin: 25px 0px;
+}

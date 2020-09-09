@@ -8,6 +8,7 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
+                        @include('common.message')
                         <h6 class="card-title">首页四图设置</h6>
                         <el-form  label-width="80px" :model="formLabelAlign" enctype="multipart/form-data">
                             @csrf

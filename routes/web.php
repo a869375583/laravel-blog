@@ -22,8 +22,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::any('member/un', ['uses' => 'BlogController@un']);
 });
 Route::any('category/{id}',['uses' =>'BlogController@cateGet']);
-
-
+//评论
+Route::any('post/comment/{id}',['uses'=>'BlogController@comment']);
 //后台
 Route::group(['middleware' => ['web']], function () {
     Route::any('admin/login', ['uses' => 'AdminController@admin_login']);

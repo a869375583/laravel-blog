@@ -52,6 +52,9 @@ class Blog extends Model{
         }
         return $str;
     }
+
+
+
 }
 
 

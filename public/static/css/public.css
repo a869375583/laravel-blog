@@ -74,19 +74,12 @@ header{
 .regin{
     float: right;
     position: relative;
-    line-height: 60px;
+    top: 0px;
 }
-.regin .btn-login{
-    border: 1px solid #4d70ff;
-    padding: 5px 15px;
-    color: #4d70ff;
+.los{
+    padding: 10px;
 }
-.regin .btn-reg{
-    border: 1px solid #4d70ff;
-    padding: 5px 15px;
-    background: #4d70ff;
-    color: #fff;
-}
+
 .regin .ava{
     width: 45px;
     height: 45px;

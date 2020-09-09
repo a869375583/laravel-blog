@@ -65,7 +65,7 @@
             <el-row :gutter="20" class="bk-style">
                 <div class="d-flex app-content-header mb-6">
                     <div class="main-title"><h4 class="i-con-h-a mb-0">
-                            <i class="mr-1 text-muted i-con i-con-calendar v-m-4"><i></i></i> <span>最新资源</span></h4>
+                            <i class="mr-1 text-muted i-con i-con-calendar v-m-4"><i></i></i> <span>最新文章</span></h4>
                     </div>
                 </div>
                 @foreach($post as $p)

@@ -118,6 +118,7 @@ class AdminController extends Controller{
                 $post->cate_id = $select_content;
                 $post->content = $content;
                 $post->save();
+                return redirect('admin/c_post/'.$id)->with('success','修改成功');
             }
             return view('admin.c_post', [
                 'cates' => $cates,
