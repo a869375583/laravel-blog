@@ -136,6 +136,9 @@ class AdminController extends Controller{
             if ($request->isMethod('POST')) {
                 $files = $request->file('file');
                 $postname = $request->input('post_name');
+                $download = $request->input('download');
+                $dwname = $request->input('dwname');
+                $dwdes = $request->input('dwdes');
                 $select_content = $request->input('select_content');
                 $content = $request->input('content');
                 $pict = $request->input('pict');
@@ -161,6 +164,9 @@ class AdminController extends Controller{
                     $postinfo->see = 0;
                     $postinfo->likeof = 0;
                     $postinfo->author = 1;
+                    $postinfo->download = $download;
+                    $postinfo->dwname = $dwname;
+                    $postinfo->dwdescript = $dwdes;
                     $postinfo->save();
 
                     return redirect('admin/add_post')->with('success', '添加成功');

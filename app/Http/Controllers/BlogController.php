@@ -195,4 +195,29 @@ class BlogController extends controller{
         }
 
     }
+
+    //支付功能
+    public function Alipay(Request $request){
+        $aop = new \AopClient();
+        $aop->gatewayUrl = 'https://openapi.alipaydev.com/gateway.do';
+        $aop->appId = '2019010162736506';
+        $aop->rsaPrivateKey = 'MIIEowIBAAKCAQEAxfDZL++LSsbJHRpHVBNlHBrVzeQO/JCwCYjPatuB/C+HA0aXQ9dxu43y6PyLFB69GwSqd1iwAmGFi0Uy6+82BrAczHJUDVXT7SsPpsSEC1Z+/f6+am+jiXRiqYQMhuhgAt70oWsy2O/mU1wEvbLn9WtkGXf4VEaZbJveCwTpU8Ii8I38MhqmRv5mflRs9RknvQzUhMYb7VZGfdVFT2sMHUlfsCNLgkVCQEQXzWrZg1uB/trXz7Sc45mOt/le3r/9fem3dQ089ldowJeVTJYrZJF+uSYjgNB6pwQgkbhhsVcIsq2mHuOuKwbgZKHSInDWuRZttSHn5n1MWQrVdMxEewIDAQABAoIBAA2i+SN/SkZdiY9ytwVIzMdx5dboZkvqH+aYQUnoU30vPQrxuwwWdKRqNBjvBRnewEJzQNc2CfIwC8Y7fzWX5k3xphpDqhy9E/ub4tknYr1xORCAk1e71zVqCj4Jdd95dNvdxla0ju05IdIOXdk/0REsU9oZVMdhkcJUvqhdr0Fw2EyhJaU2s5PER27k01vE6igWjo2vShg9rxQZednOfgNXLVupXNPa2TNVV5twJqRMd+k4ywsmO+L3rx8lZgvMO8Tbw3cRSYXKAfe1tCIvayeAZz1FLM7hjS6HsyY9jTwiYi4bgsNzb56ouR0pwMdwWGHkBUo/wGJmtyv1xn0EBJECgYEA+jnBtcLDLyxMRTmlIjIOUfcCUDnlri8mi9LskOG2hCXclseejq7HXjUbetjkF/1y8RkRIr/9JrFs9oaFvQr0cDgZBPCikrsDRIlTRKaqT0+Ke6AbXlJWcpAbCnmP1UK3+OQP5dkL+98nwmJAHXM9WqU/65ndDsVJdti04CsysHMCgYEAyoI2O00hyEWgM5KTYaKJrUorBrBD1gpnVWn0yOGUkAcBsh/CkcdR1PN76Jr0S6za47JvQYKhr9kuAccqpgMRJa1DJ/PKDrMbAHRLaVGiTPnkqqodFHHfWcoWv3XX83k+8Ab+UXvAuqA4t0aK34niso1+N1xbqYzBqiTwRRN6wdkCgYEAgcDxcg9Mp2mRI1SBDPpn8pjj2jYro+dPVbJKedaRjnUTrhxVXCfFulRPq6RMoyQKNnuJJzvnSek3V57qOt0zY/2y+5zMsMnJKAEN7MuABSB57yFXD9IigcW4P/ZJX4z5WVbp54ZlcHaHZ4ULOjpH1nlabBGdT8t+DOLS6Gt+HYECgYA1OAkWhou1PQ7/3qpaw0NZRh+Oj24UZwGHAeRxkk7flufMLuqMMwx/YUmT9Hz1EkUoB7GTTsg9FV8w2m2L2Ux9UU5PxpK4UDttYCKdV/XGMvn0G+aug8qFp0VZJZgOBTQUElJtiY85vHeLOr+uRWdNM0ATPnNcWIBgvXpjPN5K6QKBgFXka9e4KXGwZacUeEEFMjSIs9oyThBHiTWi5ADx0thtyZpzbnVkJfMrcibXZN4eUbNj1/r3PKgJ0jYa6+AD8KToOrGXafIChIKzmpGStds5WQV+vCSAFpbaMRitbmKrm7Q/Anc1FOs80YmBQAT9wnIxSC0GwdEkUfaP7BdXPmC6';
+        $aop->alipayrsaPublicKey = 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsZqRFhxCtdWB8TXwK8PRuHCF70/TnxKa8zK4t7t41VHcs5ABVz9KSS2gkvADzioFwmyAyi+/0cFRfU6C3aiRGR0z4/46TvxBNu/zYbjtslCUDuXdq05VNAAt5Jp9ZWfGdu6R2DT3F9iSDtf0PntY0GwMOxqsCPzb6E+jQkH63+XbOU69w1F17CbGJANwBgGF2hZhu8If7e4PIAWAzoBnX8/b2jlu5vjmPOyvJg1jITW6MbEA4tPvPUUtnikP0SJstZE515HMOOldzXDasnFDkJzH66PweJ2UoZcCU9hzl5BDwYhqAlvw/Lfb+ZcGePkGGBt2sctp6LmTp2o94hVN+wIDAQAB';
+        $aop->apiVersion = '1.0';
+        $aop->postCharset = 'UTF-8';
+        $aop->format = 'json';
+        $aop->signType = 'RSA2';
+        $date = date('YmdHis');
+        $arr = range(1000,9999);
+        shuffle($arr);
+        $Order['out_trade_no'] = $date.$arr[0];
+        $Order['total_amount'] = 0.01;
+        $Order['subject'] = '测试';
+
+        $request = new \AlipayTradePrecreateRequest();
+        $request->setBizContent(json_encode($Order));
+        $result = $aop->execute($request);
+        var_dump($result);
+        exit;
+    }
 }

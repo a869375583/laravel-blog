@@ -441,7 +441,7 @@ a.active, a.link-active, a:active, a:focus, a:hover {
 
 .post-love {
     text-align: center;
-    margin-bottom: 15px;
+    margin: 20px 20px;
 }
 
 .btn-love {
@@ -2320,3 +2320,124 @@ code {
     color: #6f6f6f;
 }
 /*common-user end*/
+/*download online*/
+.rounded, .rounded-circle {
+    overflow: hidden;
+}
+.rounded {
+    border-radius: 3px !important;
+}
+.bg-light {
+    background-color: #f2f2f5 !important;
+    margin-top: 20px;
+}
+.align-items-center {
+    -ms-flex-align: center!important;
+    align-items: center!important;
+}
+.flex-row {
+    -ms-flex-direction: row!important;
+    flex-direction: row!important;
+}
+.d-flex {
+    display: -ms-flexbox!important;
+    display: flex!important;
+}
+.btn-icon.btn-lg {
+    width: 54px;
+    height: 54px;
+    display: inline-block;
+}
+
+.btn {
+    border-radius: 2px;
+    white-space: normal;
+    font-size: .875rem;
+    padding: .375rem 1rem;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #448EF6;
+    border-color: #448EF6;
+}
+.btn-group-lg>.btn, .btn-lg {
+    font-size: 1rem;
+    padding: .5rem 1rem;
+}
+
+.btn-icon {
+    text-align: center;
+    width: 2.125rem;
+    height: 2.125rem;
+    padding: 0 !important;
+    position: relative;
+    font-size: 1.125rem;
+}
+.btn-icon span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+
+.flex-fill {
+    -ms-flex: 1 1 auto!important;
+    flex: 1 1 auto!important;
+}
+.pr-2, .px-2 {
+    padding-right: .5rem!important;
+}
+.text-xl {
+    font-size: 1.375rem !important;
+}
+.pl-2, .px-2 {
+    padding-left: .5rem!important;
+}
+.h-1x {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+.p-md-4 {
+    padding: 1.5rem!important;
+}
+.text-sm {
+    font-size: 0.875rem !important;
+}
+.h-1x {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+.text-secondary {
+    color: #5e646d !important;
+}
+.text-xs {
+    font-size: 0.75rem !important;
+}
+.pr-md-2, .px-md-2 {
+    padding-right: .5rem!important;
+}
+.post-content a:not(.btn) {
+    color: #448EF6;
+    text-decoration: underline;
+}
+.text-xl {
+    font-size: 1.375rem !important;
+}
+/*download online end*/

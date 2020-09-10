@@ -19,7 +19,7 @@
             </el-carousel>
             {{--four pic--}}
             <div class="index-special row mb-6">
-                <div class="col-3"><a href="{{$indexof->pic_A}}" class="">
+                <div class="col-3"><a href="{{$indexof->pic_A}}">
                         <div class="macwk-card bg-gradient-green hover-shadow-6 py-3 text-center"
                         >
 

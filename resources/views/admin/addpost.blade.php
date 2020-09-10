@@ -44,6 +44,18 @@
                                 <input type="hidden" value="" class="pic" name="pict">
                             </div>
                             <div class="form-group">
+                                <label >下载地址（选填）</label>
+                                <input type="text" class="form-control" name="download" placeholder="如有下载，请填写">
+                            </div>
+                            <div class="form-group">
+                                <label >下载文件名称（选填）</label>
+                                <input type="text" class="form-control" name="dwname" placeholder="如有下载，请填写">
+                            </div>
+                            <div class="form-group">
+                                <label >下载文件描述（选填）</label>
+                                <input type="text" class="form-control" name="dwdes" placeholder="如有下载，请填写">
+                            </div>
+                            <div class="form-group">
                                 <label >内容</label>
                                 <div id="div1" >
                                 </div>

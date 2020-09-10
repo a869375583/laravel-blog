@@ -13,7 +13,8 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^7.0",
-        "laravel/tinker": "^2.0"
+        "laravel/tinker": "^2.0",
+        "yansongda/pay": "^2.9"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
@@ -38,7 +39,8 @@
         },
         "classmap": [
             "database/seeds",
-            "database/factories"
+            "database/factories",
+            "app/Libs/alipaySdk"
         ]
     },
     "autoload-dev": {

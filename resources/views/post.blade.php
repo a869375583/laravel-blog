@@ -32,6 +32,30 @@
                 </div>
                 <div class="content" id="Imgbox">
                     <p>{!! $post->content !!}</p>
+                    {{--download--}}
+                    @if($post->download != '')
+                    <div class="bg-light rounded p-3 p-md-4 mb-3">
+                        <div class="d-flex align-items-center flex-row">
+                            <div>
+                            <span class="btn btn-primary btn-icon btn-lg">
+                                    <span><i class="text-xl el-icon-document-copy"></i></span>
+                            </span>
+                            </div>
+                            <div class="flex-fill px-2 px-md-3">
+                                <div class="text-sm h-1x">{{$post->dwname}}</div>
+                                <div class="text-xs text-secondary h-1x mt-1">
+                                    {{$post->dwdescript}}
+                                </div>
+                            </div>
+                            <div class="px-md-2">
+                                <a rel="nofollow" target="_blank" href="{{$post->download}}" class="">
+                                    <i class="text-xl el-icon-download"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
+                    {{--download end --}}
                     <p></p>
                     <div class="post-love">
                         <button class="btn-love" type="button" data-id="{{ $post->id }}">

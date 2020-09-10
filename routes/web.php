@@ -51,3 +51,16 @@ Route::any('admin/del_img/{id}',['uses'=>'AdminController@del_img']);
 
 //密码修改
 Route::any('admin/password',['uses'=>'AdminController@c_password']);
+
+//支付处理
+Route::get('alipay', function() {
+    return app('alipay')->web([
+        'out_trade_no' => time(),
+        'total_amount' => '1',
+        'subject' => 'test subject - 测试',
+    ]);
+});
+
+Route::group(['middleware' => ['auth', 'verified']], function() {
+    Route::get('payment/{order}/alipay', 'PaymentController@payByAlipay')->name('payment.alipay');
+});
